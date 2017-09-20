@@ -2,7 +2,7 @@ import equal from '@async-generators/equal';
 import iterable from '../src';
 import { expect } from 'chai';
 
-describe("@async-generator/filter", () => {
+describe("@async-generator/iterable", () => {
   it("should throw error if source is not iterable", async () => {
     let error: Error;
     try {
@@ -11,6 +11,16 @@ describe("@async-generator/filter", () => {
       error = err.message;
     }
     expect(error).to.be.eq("source parameter is not iterable");
+  })
+
+  it("should throw error with custom message", async () => {
+    let error: Error;
+    try {
+      for await (const _ of iterable(<any>{}, "pickle rick!"));
+    } catch (err) {
+      error = err.message;
+    }
+    expect(error).to.be.eq("pickle rick!");
   })
 
 
