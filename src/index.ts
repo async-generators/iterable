@@ -1,10 +1,20 @@
-export default function <T>(
-  source: AsyncIterable<T> | Iterable<T>,
-  errmsg:string = "source parameter is not iterable"
+export default function iterable<T>(
+  source: AsyncIterable<T> | Iterable<T> | (() => AsyncIterable<T> | Iterable<T>),
+  errmsg: string = "source parameter is not iterable"
 ): AsyncIterable<T> {
-  const It = source[Symbol.asyncIterator] || source[Symbol.iterator];
-  if (typeof It !== "function")
+  if (source == undefined) {
     throw Error(errmsg);
+  }
+
+  const It = source[Symbol.asyncIterator] || source[Symbol.iterator];
+
+  if (typeof It !== "function") {
+    if (typeof source === "function") {
+      return iterable(source(), errmsg);
+    }
+    throw Error(errmsg);
+  }
+
   return {
     [Symbol.asyncIterator]() { return It.call(source); }
   }
