@@ -1,4 +1,4 @@
-(<any>Symbol)["asyncIterator"] = Symbol["asyncIterator"] || Symbol.for("asyncIterator");
+if(Symbol["asyncIterator"] === undefined) ((<any>Symbol)["asyncIterator"]) = Symbol.for("asyncIterator");
 
 export default function iterable<T>(
   source: AsyncIterable<T> | Iterable<T> | (() => AsyncIterable<T> | Iterable<T>),
