@@ -1,7 +1,7 @@
 {
   "name": "@async-generators/iterable",
   "description": "wrap async/sync Iterable as an asyncIterable",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": {
     "name": "Meirion Hughes",
     "email": "crakinshot@yahoo.com",
