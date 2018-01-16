@@ -1,5 +1,5 @@
 # iterable
-![logo](https://avatars1.githubusercontent.com/u/31987273?v=4&s=100)
+![logo](https://avatars1.githubusercontent.com/u/31987273?v=4&s=110)
 
 wrap an async/sync Iterable as async Iterable. 
 
@@ -17,9 +17,9 @@ npm install @async-generators/iterable --save
 yarn add @async-generators/iterable
 ```
 
-This package's `main` entry points to a `commonjs` distribution. 
+This package's `main` entry points to a `commonjs` dist. 
+The `module` entry points to a `es2015` module dist. Both require native async-generator support, or be down-compiled with a webpack loader. 
 
-Additionally, the `module` entry points to a `es2015` distribution, which can be used by build systems, such as webpack, to directly use es2015 modules. 
 
 ## Api
 
